@@ -13,7 +13,7 @@ namespace faceapp
     static class Program
     {
         /// <summary>
-        /// The mmain entry point for the application.
+        /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
