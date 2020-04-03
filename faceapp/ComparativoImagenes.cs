@@ -133,7 +133,7 @@ namespace faceapp
                     var fileUri1 = new Uri(filePath1);
 
                     BitmapImage bitmapSource = new BitmapImage();
-
+                   
                     bitmapSource.BeginInit();
                     bitmapSource.CacheOption = BitmapCacheOption.None;
                     bitmapSource.UriSource = fileUri1;
