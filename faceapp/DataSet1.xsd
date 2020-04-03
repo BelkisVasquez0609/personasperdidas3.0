@@ -232,7 +232,7 @@ SELECT id, Imagen, idPersonaDesaparecida, Fecha, LugarEncontrado, porcentajesimi
               <Mapping SourceColumn="porcentajesimilitud" DataSetColumn="porcentajesimilitud" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.RegistroSimilitud" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetHorabyid" Modifier="Public" Name="GetHorabyid" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="GetHorabyid">
+              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.RegistroSimilitud" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetHorabyid" Modifier="Public" Name="GetHorabyid" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetHorabyid">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Fecha FROM RegistroSimilitud where id= @id</CommandText>
@@ -242,7 +242,7 @@ SELECT id, Imagen, idPersonaDesaparecida, Fecha, LugarEncontrado, porcentajesimi
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.GetIdDesaparecida" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="GetIdDesaparecida" Modifier="Public" Name="GetIdDesaparecida" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetIdDesaparecida">
+              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.GetIdDesaparecida" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="GetIdDesaparecida" Modifier="Public" Name="GetIdDesaparecida" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="GetIdDesaparecida">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.GetIdDesaparecida</CommandText>
@@ -253,7 +253,7 @@ SELECT id, Imagen, idPersonaDesaparecida, Fecha, LugarEncontrado, porcentajesimi
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.RegistroSimilitud" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Getimagenes" Modifier="Public" Name="Getimagenes" QueryType="Scalar" ScalarCallRetval="System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Getimagenes">
+              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.RegistroSimilitud" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Getimagenes" Modifier="Public" Name="Getimagenes" QueryType="Scalar" ScalarCallRetval="System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Getimagenes">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Imagen
@@ -265,7 +265,31 @@ WHERE        (id = @id)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.RegistroSimilitud" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getsimilitud" Modifier="Public" Name="getsimilitud" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getsimilitud">
+              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.RegistroSimilitud" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetLatitude" Modifier="Public" Name="GetLatitude" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="GetLatitude">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Latitude
+FROM            RegistroSimilitud
+WHERE        (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="faceapp.dbo.RegistroSimilitud" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.RegistroSimilitud" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetLongitude" Modifier="Public" Name="GetLongitude" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="GetLongitude">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        longitude
+FROM            RegistroSimilitud
+WHERE        (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="faceapp.dbo.RegistroSimilitud" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.RegistroSimilitud" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getsimilitud" Modifier="Public" Name="getsimilitud" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="getsimilitud">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT porcentajesimilitud FROM RegistroSimilitud where id = @id</CommandText>
@@ -275,19 +299,7 @@ WHERE        (id = @id)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.RegistroSimilitud" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetUbication" Modifier="Public" Name="GetUbication" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="GetUbication">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        LugarEncontrado
-FROM            RegistroSimilitud
-WHERE        (id = @id)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="faceapp.dbo.RegistroSimilitud" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.RegistroSimilitud" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetUltimoID" Modifier="Public" Name="GetUltimoID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="GetUltimoID">
+              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="faceapp.dbo.RegistroSimilitud" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetUltimoID" Modifier="Public" Name="GetUltimoID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="GetUltimoID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        TOP (1) id
@@ -297,7 +309,7 @@ ORDER BY id DESC</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryRegistroSimilutud" Modifier="Public" Name="InsertQueryRegistroSimilutud" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="InsertQueryRegistroSimilutud">
+              <DbSource ConnectionRef="faceappConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryRegistroSimilutud" Modifier="Public" Name="InsertQueryRegistroSimilutud" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="InsertQueryRegistroSimilutud">
                 <InsertCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.InsertQueryRegistroSimilutud</CommandText>
@@ -306,7 +318,8 @@ ORDER BY id DESC</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="varbinary" DbType="Binary" Direction="Input" ParameterName="@Imagen" Precision="0" ProviderType="VarBinary" Scale="0" Size="2147483647" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idPersonaDesaparecida" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@LugarEncontrado" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@latitude" Precision="53" ProviderType="Float" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@logitude" Precision="53" ProviderType="Float" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@similitud" Precision="53" ProviderType="Float" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
@@ -679,7 +692,7 @@ SELECT Id, NombreCompleto, Usuario, Clave, Rol FROM Usuarios WHERE (Id = @Id)</C
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Desaparecidos" msprop:Generator_TableClassName="DesaparecidosDataTable" msprop:Generator_TableVarName="tableDesaparecidos" msprop:Generator_RowChangedName="DesaparecidosRowChanged" msprop:Generator_TablePropName="Desaparecidos" msprop:Generator_RowDeletingName="DesaparecidosRowDeleting" msprop:Generator_RowChangingName="DesaparecidosRowChanging" msprop:Generator_RowEvHandlerName="DesaparecidosRowChangeEventHandler" msprop:Generator_RowDeletedName="DesaparecidosRowDeleted" msprop:Generator_RowClassName="DesaparecidosRow" msprop:Generator_UserTableName="Desaparecidos" msprop:Generator_RowEvArgName="DesaparecidosRowChangeEvent">
+        <xs:element name="Desaparecidos" msprop:Generator_TableClassName="DesaparecidosDataTable" msprop:Generator_TableVarName="tableDesaparecidos" msprop:Generator_TablePropName="Desaparecidos" msprop:Generator_RowDeletingName="DesaparecidosRowDeleting" msprop:Generator_RowChangingName="DesaparecidosRowChanging" msprop:Generator_RowEvHandlerName="DesaparecidosRowChangeEventHandler" msprop:Generator_RowDeletedName="DesaparecidosRowDeleted" msprop:Generator_UserTableName="Desaparecidos" msprop:Generator_RowChangedName="DesaparecidosRowChanged" msprop:Generator_RowEvArgName="DesaparecidosRowChangeEvent" msprop:Generator_RowClassName="DesaparecidosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -712,7 +725,7 @@ SELECT Id, NombreCompleto, Usuario, Clave, Rol FROM Usuarios WHERE (Id = @Id)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RegistroSimilitud" msprop:Generator_TableClassName="RegistroSimilitudDataTable" msprop:Generator_TableVarName="tableRegistroSimilitud" msprop:Generator_RowChangedName="RegistroSimilitudRowChanged" msprop:Generator_TablePropName="RegistroSimilitud" msprop:Generator_RowDeletingName="RegistroSimilitudRowDeleting" msprop:Generator_RowChangingName="RegistroSimilitudRowChanging" msprop:Generator_RowEvHandlerName="RegistroSimilitudRowChangeEventHandler" msprop:Generator_RowDeletedName="RegistroSimilitudRowDeleted" msprop:Generator_RowClassName="RegistroSimilitudRow" msprop:Generator_UserTableName="RegistroSimilitud" msprop:Generator_RowEvArgName="RegistroSimilitudRowChangeEvent">
+        <xs:element name="RegistroSimilitud" msprop:Generator_TableClassName="RegistroSimilitudDataTable" msprop:Generator_TableVarName="tableRegistroSimilitud" msprop:Generator_TablePropName="RegistroSimilitud" msprop:Generator_RowDeletingName="RegistroSimilitudRowDeleting" msprop:Generator_RowChangingName="RegistroSimilitudRowChanging" msprop:Generator_RowEvHandlerName="RegistroSimilitudRowChangeEventHandler" msprop:Generator_RowDeletedName="RegistroSimilitudRowDeleted" msprop:Generator_UserTableName="RegistroSimilitud" msprop:Generator_RowChangedName="RegistroSimilitudRowChanged" msprop:Generator_RowEvArgName="RegistroSimilitudRowChangeEvent" msprop:Generator_RowClassName="RegistroSimilitudRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -730,7 +743,7 @@ SELECT Id, NombreCompleto, Usuario, Clave, Rol FROM Usuarios WHERE (Id = @Id)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Roles" msprop:Generator_TableClassName="RolesDataTable" msprop:Generator_TableVarName="tableRoles" msprop:Generator_RowChangedName="RolesRowChanged" msprop:Generator_TablePropName="Roles" msprop:Generator_RowDeletingName="RolesRowDeleting" msprop:Generator_RowChangingName="RolesRowChanging" msprop:Generator_RowEvHandlerName="RolesRowChangeEventHandler" msprop:Generator_RowDeletedName="RolesRowDeleted" msprop:Generator_RowClassName="RolesRow" msprop:Generator_UserTableName="Roles" msprop:Generator_RowEvArgName="RolesRowChangeEvent">
+        <xs:element name="Roles" msprop:Generator_TableClassName="RolesDataTable" msprop:Generator_TableVarName="tableRoles" msprop:Generator_TablePropName="Roles" msprop:Generator_RowDeletingName="RolesRowDeleting" msprop:Generator_RowChangingName="RolesRowChanging" msprop:Generator_RowEvHandlerName="RolesRowChangeEventHandler" msprop:Generator_RowDeletedName="RolesRowDeleted" msprop:Generator_UserTableName="Roles" msprop:Generator_RowChangedName="RolesRowChanged" msprop:Generator_RowEvArgName="RolesRowChangeEvent" msprop:Generator_RowClassName="RolesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -744,7 +757,7 @@ SELECT Id, NombreCompleto, Usuario, Clave, Rol FROM Usuarios WHERE (Id = @Id)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Usuarios" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_RowClassName="UsuariosRow" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent">
+        <xs:element name="Usuarios" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent" msprop:Generator_RowClassName="UsuariosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -773,7 +786,7 @@ SELECT Id, NombreCompleto, Usuario, Clave, Rol FROM Usuarios WHERE (Id = @Id)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ReporteDesaparecido" msprop:Generator_TableClassName="ReporteDesaparecidoDataTable" msprop:Generator_TableVarName="tableReporteDesaparecido" msprop:Generator_TablePropName="ReporteDesaparecido" msprop:Generator_RowDeletingName="ReporteDesaparecidoRowDeleting" msprop:Generator_RowChangingName="ReporteDesaparecidoRowChanging" msprop:Generator_RowEvHandlerName="ReporteDesaparecidoRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteDesaparecidoRowDeleted" msprop:Generator_UserTableName="ReporteDesaparecido" msprop:Generator_RowChangedName="ReporteDesaparecidoRowChanged" msprop:Generator_RowEvArgName="ReporteDesaparecidoRowChangeEvent" msprop:Generator_RowClassName="ReporteDesaparecidoRow">
+        <xs:element name="ReporteDesaparecido" msprop:Generator_TableClassName="ReporteDesaparecidoDataTable" msprop:Generator_TableVarName="tableReporteDesaparecido" msprop:Generator_RowChangedName="ReporteDesaparecidoRowChanged" msprop:Generator_TablePropName="ReporteDesaparecido" msprop:Generator_RowDeletingName="ReporteDesaparecidoRowDeleting" msprop:Generator_RowChangingName="ReporteDesaparecidoRowChanging" msprop:Generator_RowEvHandlerName="ReporteDesaparecidoRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteDesaparecidoRowDeleted" msprop:Generator_RowClassName="ReporteDesaparecidoRow" msprop:Generator_UserTableName="ReporteDesaparecido" msprop:Generator_RowEvArgName="ReporteDesaparecidoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -806,7 +819,7 @@ SELECT Id, NombreCompleto, Usuario, Clave, Rol FROM Usuarios WHERE (Id = @Id)</C
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ReporteEncontrado" msprop:Generator_TableClassName="ReporteEncontradoDataTable" msprop:Generator_TableVarName="tableReporteEncontrado" msprop:Generator_TablePropName="ReporteEncontrado" msprop:Generator_RowDeletingName="ReporteEncontradoRowDeleting" msprop:Generator_RowChangingName="ReporteEncontradoRowChanging" msprop:Generator_RowEvHandlerName="ReporteEncontradoRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteEncontradoRowDeleted" msprop:Generator_UserTableName="ReporteEncontrado" msprop:Generator_RowChangedName="ReporteEncontradoRowChanged" msprop:Generator_RowEvArgName="ReporteEncontradoRowChangeEvent" msprop:Generator_RowClassName="ReporteEncontradoRow">
+        <xs:element name="ReporteEncontrado" msprop:Generator_TableClassName="ReporteEncontradoDataTable" msprop:Generator_TableVarName="tableReporteEncontrado" msprop:Generator_RowChangedName="ReporteEncontradoRowChanged" msprop:Generator_TablePropName="ReporteEncontrado" msprop:Generator_RowDeletingName="ReporteEncontradoRowDeleting" msprop:Generator_RowChangingName="ReporteEncontradoRowChanging" msprop:Generator_RowEvHandlerName="ReporteEncontradoRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteEncontradoRowDeleted" msprop:Generator_RowClassName="ReporteEncontradoRow" msprop:Generator_UserTableName="ReporteEncontrado" msprop:Generator_RowEvArgName="ReporteEncontradoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -868,9 +881,9 @@ SELECT Id, NombreCompleto, Usuario, Clave, Rol FROM Usuarios WHERE (Id = @Id)</C
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_RegistroSimilitud_Desaparecidos" msdata:parent="Desaparecidos" msdata:child="RegistroSimilitud" msdata:parentkey="id" msdata:childkey="idPersonaDesaparecida" msprop:Generator_UserChildTable="RegistroSimilitud" msprop:Generator_ChildPropName="GetRegistroSimilitudRows" msprop:Generator_UserRelationName="FK_RegistroSimilitud_Desaparecidos" msprop:Generator_RelationVarName="relationFK_RegistroSimilitud_Desaparecidos" msprop:Generator_UserParentTable="Desaparecidos" msprop:Generator_ParentPropName="DesaparecidosRow" />
-      <msdata:Relationship name="FK_Desaparecidos_Usuarios" msdata:parent="Usuarios" msdata:child="Desaparecidos" msdata:parentkey="Id" msdata:childkey="IdUsuario" msprop:Generator_UserChildTable="Desaparecidos" msprop:Generator_ChildPropName="GetDesaparecidosRows" msprop:Generator_UserRelationName="FK_Desaparecidos_Usuarios" msprop:Generator_ParentPropName="UsuariosRow" msprop:Generator_RelationVarName="relationFK_Desaparecidos_Usuarios" msprop:Generator_UserParentTable="Usuarios" />
-      <msdata:Relationship name="FK_Usuarios_Roles" msdata:parent="Roles" msdata:child="Usuarios" msdata:parentkey="Id" msdata:childkey="Rol" msprop:Generator_UserChildTable="Usuarios" msprop:Generator_ChildPropName="GetUsuariosRows" msprop:Generator_UserRelationName="FK_Usuarios_Roles" msprop:Generator_RelationVarName="relationFK_Usuarios_Roles" msprop:Generator_UserParentTable="Roles" msprop:Generator_ParentPropName="RolesRow" />
+      <msdata:Relationship name="FK_RegistroSimilitud_Desaparecidos" msdata:parent="Desaparecidos" msdata:child="RegistroSimilitud" msdata:parentkey="id" msdata:childkey="idPersonaDesaparecida" msprop:Generator_UserChildTable="RegistroSimilitud" msprop:Generator_ChildPropName="GetRegistroSimilitudRows" msprop:Generator_UserRelationName="FK_RegistroSimilitud_Desaparecidos" msprop:Generator_ParentPropName="DesaparecidosRow" msprop:Generator_RelationVarName="relationFK_RegistroSimilitud_Desaparecidos" msprop:Generator_UserParentTable="Desaparecidos" />
+      <msdata:Relationship name="FK_Desaparecidos_Usuarios" msdata:parent="Usuarios" msdata:child="Desaparecidos" msdata:parentkey="Id" msdata:childkey="IdUsuario" msprop:Generator_UserChildTable="Desaparecidos" msprop:Generator_ChildPropName="GetDesaparecidosRows" msprop:Generator_UserRelationName="FK_Desaparecidos_Usuarios" msprop:Generator_RelationVarName="relationFK_Desaparecidos_Usuarios" msprop:Generator_UserParentTable="Usuarios" msprop:Generator_ParentPropName="UsuariosRow" />
+      <msdata:Relationship name="FK_Usuarios_Roles" msdata:parent="Roles" msdata:child="Usuarios" msdata:parentkey="Id" msdata:childkey="Rol" msprop:Generator_UserChildTable="Usuarios" msprop:Generator_ChildPropName="GetUsuariosRows" msprop:Generator_UserRelationName="FK_Usuarios_Roles" msprop:Generator_ParentPropName="RolesRow" msprop:Generator_RelationVarName="relationFK_Usuarios_Roles" msprop:Generator_UserParentTable="Roles" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

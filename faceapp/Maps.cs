@@ -13,14 +13,14 @@ namespace faceapp
 {
     public partial class Maps : Form
     {
-        public Maps(string latitude, string longitude)
+        public Maps(double latitude, double longitude)
         {
             InitializeComponent();
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
 
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             //gMapControl1.SetPositionByKeywords("Paris, France");
-            gMapControl1.Position = new GMap.NET.PointLatLng(Convert.ToDouble(latitude), Convert.ToDouble(longitude));
+            gMapControl1.Position = new GMap.NET.PointLatLng(latitude, longitude);
 
             //  webBrowser1.Url = new System.Uri("https://www.google.com/maps/@+"+ latitude + ","+ longitude + "z", System.UriKind.Absolute);
 

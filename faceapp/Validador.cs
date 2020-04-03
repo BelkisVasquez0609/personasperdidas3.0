@@ -17,7 +17,9 @@ namespace faceapp
         int idsimilar;
         DataSet1TableAdapters.RegistroSimilitudTableAdapter z;
         DataSet1TableAdapters.DesaparecidosTableAdapter x;
-        string ubicaion;
+       
+        double latitude;
+        double logitude;
         public Validador()
         {
             InitializeComponent();
@@ -48,12 +50,14 @@ namespace faceapp
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
+           
             idsimilar = Convert.ToInt32(textBox1.Text);
             iddesaparecido = Convert.ToInt32(z.GetIdDesaparecida(idsimilar));
+            latitude = Convert.ToDouble(z.GetLatitude(idsimilar));
+            logitude = Convert.ToDouble(z.GetLongitude(idsimilar));
             label6.Text = Math.Round(Convert.ToDouble(z.getsimilitud(idsimilar)),2).ToString() + "%";
-            label8.Text = z.GetUbication(idsimilar);
-            ubicaion = z.GetUbication(idsimilar);
+            label8.Text = latitude.ToString() +","+logitude.ToString();
+         
             label10.Text = Convert.ToDateTime(z.GetHorabyid(idsimilar)).ToLongTimeString();
             label11.Text = Convert.ToDateTime(z.GetHorabyid(idsimilar)).ToShortDateString();
             if (iddesaparecido > 0)
@@ -82,14 +86,13 @@ namespace faceapp
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string latitude = ubicaion.Substring(10, 11);
-            string logintude = ubicaion.Substring(33, 11);
-            new Maps(latitude, logintude).ShowDialog();
+           
+            new Maps(latitude, logitude).ShowDialog();
         }
     }
 }

@@ -63,6 +63,7 @@ namespace faceapp
         clientFace = x;
         watcher = new GeoCoordinateWatcher();
         BuscarDispositivos();
+            GetLocationProperty();
 
         }     
         //Metodos
@@ -115,7 +116,9 @@ namespace faceapp
         {
         var x = new DataSet1TableAdapters.DesaparecidosTableAdapter();
         var z = new DataSet1TableAdapters.RegistroSimilitudTableAdapter();
-        var y = x.GetDataBy3();
+                GetLocationProperty();
+
+                var y = x.GetDataBy3();
         img1 = pictureBox2.Image;
         
         for (int i = 0; i < y.Count; i++)
@@ -129,8 +132,8 @@ namespace faceapp
         if (porcent > 55)
         {
         MessageBox.Show("Esta Imagen es parecida con un " + porcent + "%" + " con el desaparecido: " + x.GetNombreDesaparecido(y[i].id) + " Con el Correo: " + x.GetCorreoDesaparecida(y[i].id));
-        z.InsertQueryRegistroSimilutud(ImageToByteArray(img1), y[i].id, DateTime.Now, GetLocationProperty(), Convert.ToDouble(porcent));
-        SendCorreos(x.GetCorreoDesaparecida(y[i].id).ToString(), "Encontramos tu desaparecido", "Existe una hay Imagen que es parecida a tu desaparecido: "+x.GetNombreDesaparecido(y[i].id) +" con un: " + porcent + "% de similitud" + " y las siguiente descripcion: " + "\n \n" + defaultStatusBarText + ". \n \n En la siguiente ubicacion: " + GetLocationProperty()  +"\n \n" + " Verifique su aplicacion y use el codigo de verificacion: " + z.GetUltimoID());
+        z.InsertQueryRegistroSimilutud(ImageToByteArray(img1), y[i].id, DateTime.Now,latitude,longitude, Convert.ToDouble(porcent));
+        SendCorreos(x.GetCorreoDesaparecida(y[i].id).ToString(), "Encontramos tu desaparecido", "Existe una hay Imagen que es parecida a tu desaparecido: "+x.GetNombreDesaparecido(y[i].id) +" con un: " + porcent + "% de similitud" + " y las siguiente descripcion: " + "\n \n" + defaultStatusBarText + ". \n \n En la siguiente ubicacion: " + latitude.ToString()+","+longitude.ToString() +"\n \n" + " Verifique su aplicacion y use el codigo de verificacion: " + z.GetUltimoID());
         break;
         }
 
@@ -141,7 +144,7 @@ namespace faceapp
         MessageBox.Show("No se Encontraron Similitudes con ningun desaparecido");
         }
 
-        
+                this.Close();
 
         button1.Visible = false;
         button2.Visible = true;
@@ -206,7 +209,9 @@ namespace faceapp
         button2.Visible = false;
         }
         }
-        public string GetLocationProperty()
+        double latitude;
+        double longitude;
+        public void GetLocationProperty()
         {
           
         // Do not suppress prompt, and wait 1000 milliseconds to start.
@@ -216,18 +221,12 @@ namespace faceapp
 
         if (coord.IsUnknown != true)
         {
-
-        return " Latitude: "+ coord.Latitude+", " +"Longitude: "  + coord.Longitude;
+                latitude = coord.Latitude;
+                longitude = coord.Longitude;
         }
-        else
-        {
-        return "Unknown latitude and longitude.";
+        
         }
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-        MessageBox.Show(GetLocationProperty());
-        }
+       
         private void btnCerrar_Click(object sender, EventArgs e)
         {
         TerminarFuenteDeVideo();
@@ -299,7 +298,7 @@ namespace faceapp
 
         private async void button4_Click(object sender, EventArgs e)
         {
-          
+            GetLocationProperty();
 
             //BitmapImage bitmapSource = new BitmapImage();
             //filePath1 = pictureBox1.ImageLocation;
@@ -359,9 +358,9 @@ namespace faceapp
 
         if (porcent > 55)
         {
-        MessageBox.Show("Esta Imagen es parecida con un " + porcent + "%" + " con el desaparecido: " + x.GetNombreDesaparecido(y[i].id) + " Con las Siguientes Caracteristicas: "+defaultStatusBarText+" Dicha informacion sera enviada al correo: "+ x.GetCorreoDesaparecida(y[i].id));
-        //  z.InsertQueryRegistroSimilutud(ImageToByteArray(img1), y[i].id, DateTime.Now, GetLocationProperty(), Convert.ToDouble(porcent));
-        // SendCorreos(x.GetCorreoDesaparecida(y[i].id).ToString(), "Encontramos tu desaparecido", "hay Imagen es parecida con un " + porcent + "% de similitud" + " con el desaparecido: " + x.GetNombreDesaparecido(y[i].id) + ",\n en la siguiente ubicacion " + GetLocationProperty() + " Verifique su aplicacion y use el codigo de verificacion: " + z.GetUltimoID());
+        MessageBox.Show("Esta Imagen es parecida con un " + porcent + "%" + " con el desaparecido: " + x.GetNombreDesaparecido(y[i].id) + " Con el Correo: " + x.GetCorreoDesaparecida(y[i].id));
+        z.InsertQueryRegistroSimilutud(ImageToByteArray(img1), y[i].id, DateTime.Now, latitude, longitude, Convert.ToDouble(porcent));
+        SendCorreos(x.GetCorreoDesaparecida(y[i].id).ToString(), "Encontramos tu desaparecido", "Existe una hay Imagen que es parecida a tu desaparecido: " + x.GetNombreDesaparecido(y[i].id) + " con un: " + porcent + "% de similitud" + " y las siguiente descripcion: " + "\n \n" + defaultStatusBarText + ". \n \n En la siguiente ubicacion: " + latitude.ToString() + "," + longitude.ToString() + "\n \n" + " Verifique su aplicacion y use el codigo de verificacion: " + z.GetUltimoID());
 
         break;
         }
